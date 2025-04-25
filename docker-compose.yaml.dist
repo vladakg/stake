@@ -1,0 +1,29 @@
+version: "3.5"
+
+services:
+  front:
+    image: nginx:alpine
+    container_name: stake_api_front
+    ports:
+      - "81:81"
+    volumes:
+      - .:/var/www:rw
+      - ./docker/front/stake_api.conf:/etc/nginx/conf.d/stake_api.conf:ro
+    working_dir: /var/www
+
+  engine:
+    build: ./docker/engine/
+    container_name: stake_api_engine
+    volumes:
+      - .:/var/www:rw
+      - ./docker/engine/php.ini:/usr/local/etc/php/conf.d/custom.ini:ro
+    working_dir: /var/www
+
+  db:
+    image: mysql/mysql-server:8.0.23
+    container_name: stake_api_db
+    environment:
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+    ports:
+      - "3307:3307"

@@ -42,38 +42,24 @@ DB_PASSWORD – Database password (e.g., root).
 
 Other services like MAIL_MAILER, QUEUE_CONNECTION, etc., can be configured as required.
 ```
-### 4. Install Dependencies
+### 4. Run command which will build docker, run composer, create database, migrations, seeders, and application will be available on http://localhost:81
+
 ```bash
-composer install
+make init
 ```
 
-### 5. Set Up the Database
-```bash
-php artisan migrate
-
-If you are setting up a testing environment, you can use:
-php artisan migrate --env=testing
-```
-
-### 6. Seed the Database (Optional)
-```bash
-php artisan db:seed
-
-Alternatively, if you need to refresh the database with both migrations and seeders:
-php artisan migrate:refresh --seed
-```
-
-### 7. Run Tests
+### 5. Run Tests
 ```bash
 php artisan test
 ```
 
-### 8. Additional Information
+### 6. Additional Information
 Make sure your local environment is properly configured to work with the database.
 
-### 9. Run Funds Distribution Command
+### 7. Run Funds Distribution Command
 
 Once your setup is complete and you have investments and campaigns in your database, you can trigger the distribution of funds to investors by running the following Artisan command:
 
 ```bash
 php artisan funds:distribute {property_id} {amount}
+```
