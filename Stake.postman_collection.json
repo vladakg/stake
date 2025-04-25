@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "2a7368b1-97a8-4011-affd-d92228c720f1",
+		"name": "Stake",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13019208",
+		"_collection_link": "https://warped-meadow-400209.postman.co/workspace/Scheduler~18bdb98e-fb96-4d79-8716-af57e37ad4ed/collection/13019208-2a7368b1-97a8-4011-affd-d92228c720f1?action=share&source=collection_link&creator=13019208"
+	},
+	"item": [
+		{
+			"name": "Fetch Campaigns",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api}}/campaigns?page=1&size=75&search=uae&number_of_investors[min]=1&number_of_investors[max]=4&target_amount[min]=464486.8&target_amount[max]=464486.9&percentage_raised[min]=2&percentage_raised[max]=13",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"campaigns"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "75"
+						},
+						{
+							"key": "search",
+							"value": "uae"
+						},
+						{
+							"key": "number_of_investors[min]",
+							"value": "1"
+						},
+						{
+							"key": "number_of_investors[max]",
+							"value": "4"
+						},
+						{
+							"key": "target_amount[min]",
+							"value": "464486.8"
+						},
+						{
+							"key": "target_amount[max]",
+							"value": "464486.9"
+						},
+						{
+							"key": "percentage_raised[min]",
+							"value": "2"
+						},
+						{
+							"key": "percentage_raised[max]",
+							"value": "13"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show Campaign",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api}}/campaigns/1",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"campaigns",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Investment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "amount",
+							"value": "1690",
+							"type": "text"
+						},
+						{
+							"key": "guest_identifier",
+							"value": "john@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api}}/campaigns/1/investments",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"campaigns",
+						"1",
+						"investments"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
